@@ -7,7 +7,7 @@ const sendEmail = require('./sendEmail')
 const TelegramBaseController = Telegram.TelegramBaseController
 const TextCommand = Telegram.TextCommand
 
-const TOKEN = `302440081:AAHAVDIXPSM_qqjk-viS3XLwd2owSScmCZs`
+const TOKEN = ``
 const chatbot = new Telegram.Telegram(TOKEN)
 
 const newCalled = {
@@ -32,6 +32,7 @@ const checkConfirmation = ($) => {
     if(result.confim == 'Sim' || result.confim == 'sim'){
       console.log(newCalled)
       sendEmail(nodemailer, newCalled)
+      $.sendMessage('Chamado confimado! Em breve, entraremos em contato com você.')
       newCalled.user = ""
       newCalled.type = ""
       newCalled.priority = ""
