@@ -57,8 +57,8 @@ const form = {
   }
 }
 
-class EventsController extends TelegramBaseController {
-  allEventsAction($) {
+class MainController extends TelegramBaseController {
+  mainAction($) {
     $.runMenu({
       layout: 2,
       message: 'Escolha o tipo de chamado:',
@@ -102,12 +102,12 @@ class EventsController extends TelegramBaseController {
   }
   get routes() {
     return {
-      'novoChamado': 'allEventsAction',
+      'novoChamado': 'mainAction',
     }
   }
 }
 
 chatbot.router.when(
-  new TextCommand('/start', 'novoChamado'), new EventsController()
+  new TextCommand('/start', 'novoChamado'), new MainController()
 )
 
